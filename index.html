@@ -199,7 +199,35 @@
             loginBox.classList.add('active');
         });
     </script>
+<script>
+document.querySelector('.auth-container form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Lấy tất cả các ô nhập liệu trong form
+    const inputs = document.querySelectorAll('.auth-container input');
+    const username = inputs[0]?.value.trim();
+    const password = inputs[1]?.value;
+    const confirmPassword = inputs[2]?.value;
 
+    // Kiểm tra nếu để trống
+    if (!username || !password || !confirmPassword) {
+        alert('Vui lòng nhập đầy đủ thông tin!');
+        return;
+    }
+
+    // Kiểm tra hai mật khẩu có khớp nhau không
+    if (password !== confirmPassword) {
+        alert('Mật khẩu nhập lại không trùng khớp!');
+        return;
+    }
+
+    // Thông báo thành công nếu hợp lệ
+    alert('Đăng ký tài khoản thành công!');
+    
+    // Chuyển hướng sang giao diện đăng nhập (nếu cần)
+    // window.location.href = 'index.html'; 
+});
+</script>
 </body>
 </html>
 
